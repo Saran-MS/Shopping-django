@@ -1,0 +1,108 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'styles/stylesheet.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>SM watches</title>
+    <style>
+        h1 {
+            color: orange;
+            text-align: center;
+            font-size: 40px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            padding: 2%
+        }
+
+        p {
+            color: black;
+            font-size: 20px;
+            padding-left: 2%;
+            margin-top: 5px;
+        }
+
+        .navbar {
+            position: relative;
+            z-index: 2;
+        }
+
+        .blogcontainer {
+            background: white;
+            border-style: solid;
+            border-color: blueviolet;
+            border-radius: 2%;
+            align-items: center;
+            margin: 50px 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blogcontainer:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: url("/static/features2.jpg");
+            opacity: .1;
+        }
+
+    </style>
+</head>
+<nav class="navbar navbar-expand-xl bg-dark navbar-dark">
+    <img src="{% static 'logo.png' %}">
+    <ul class="nav mr-auto">
+    </ul>
+    <ul class="nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link">Hello, <span style="color:lawngreen;">{{user.first_name}}</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./shops">Shop</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./cart">Cart</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="accounts/logout">Logout</a>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="accounts/register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="accounts/login">Login</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+<section>
+    <div class="container" style="padding-top: 5%;">
+        <h1 style="color: blueviolet">Cart</h1>
+        {% for obj in obj %}
+        <div class="blogcontainer rounded">
+            <div class="float-container">
+                <div class="float-child">
+                    <h2 style="color: blueviolet;font-size:30px">{{obj.brand}}</h2>
+                    <p>Price : {{obj.price}}</p>
+                    <p>Quantity : {{obj.quantity}}</p>
+                    <p>Address : {{obj.address}}</p>
+                    <p>Order Time : {{obj.timestamp}}</p>
+                </div>
+            </div>
+            <img src="/media/{{obj.image}}" width="250px" height="250px">
+        </div>
+        {% endfor %}
+
+    </div>
+</section>

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'styles/stylesheet.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>SM watches</title>
+</head>
+<section>
+    <div class="container" >
+        <div>
+            <div class="float-child" id="des1">
+                <img src="/media/{{obj.img}}" class="vector" width="500px" height="450px">
+            </div>
+            <div class="float-child" id="featurelist">
+                <h1>{{obj.brand}}</h1>
+                <hr>
+                <h3>${{obj.price}}</h3>
+                <hr>
+                <h3>Product description</h3>
+                <p style="font-family: 'Nunito';font-size: 20px;">Aenean egestas ante non ullamcorper rutrum. Donec
+                    fermentum mi nec massa tempor vehicula. Nulla nec porta lorem, laoreet congue lectus. Nullam commodo
+                    nisl in elit posuere, eget pulvinar nisl fringilla.
+                </p>
+                <hr>
+                <a href="{% url 'checkout' id=obj.id %}" style="color: white;text-decoration: none;"><button class="btn btn-secondary" style="font-family: 'Nunito', sans-serif;font-size: 20px;"
+                ><i class="fa fa-shopping-cart"></i>  Buy Now</button></a>
+            </div>
+        </div>
+</section>
+<section>
+<div class="container" id="video">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TCMnrssX1NE?autoplay=0" frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    <h2>New Arrival</h2>
+</div>
+</section>

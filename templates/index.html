@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="{% static 'styles/stylesheet.css' %}" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>SM watches</title>
+  <style>
+    #features>div{
+    padding-top: 5%;
+    }
+    hr {
+    width: 60%;
+    margin-left: 0;}
+  #featurelist>div{
+    font-size: 20px;
+    padding:5%
+  }
+  </style>
+</head>
+<nav class="navbar navbar-expand-xl bg-dark navbar-dark">
+  <img src="{% static 'logo.png' %}">
+  <ul class="nav mr-auto">
+  </ul>
+  <ul class="nav">
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link">Hello, <span style="color:lawngreen;">{{user.first_name}}</span></a>
+    </li>
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="#welcome-section">Home</a>
+    </li>
+    {% endif %}
+
+    <li class="nav-item">
+      <a class="nav-link" href="#about">Gallery</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Products
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#amazfit" style="font-size: larger;">Amazfit</a>
+        <a class="dropdown-item" href="#apple" style="font-size: larger;">Apple</a>
+        <a class="dropdown-item" href="#fitbit" style="font-size: larger;">Fitbit</a>
+        <a class="dropdown-item" href="#fossil" style="font-size: larger;">Fossil</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#features">Features</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="./shops">Shop</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/cart">Cart</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="accounts/logout">Logout</a>
+    </li>
+
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="accounts/register">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="accounts/login">Login</a>
+    </li>
+    {% endif %}
+  </ul>
+
+</nav>
+<section id="welcome-section" class="float-container bg-dark">
+  <div class="float-child">
+    <h1>Lifestyle</h1>
+    <h1>Smart <span style="color:blueviolet">Watch</span></h1>
+    <br>
+    <p style="color: white;margin-left: 50px;font-size: 26px;">Technology of the future</p>
+  </div>
+  <div class="float-child">
+    <img src="{% static 'vector.png' %}" class="vector" width="500px" height="500px">
+  </div>
+</section>
+<section id="about">
+  <p>About Our watches</p>
+  <h1><span style="color: #7538d6;">New, Improved </span>Design <br>
+    and Performance
+  </h1><br>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae<br>
+    odales lectus, non ultrices nisi. In varius, leo non gravida.</p>
+  <div class="gallery">
+    <img src="{% static 'img1.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'img2.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'img3.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'img4.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'img5.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'img6.jpg' %}" width="400px" height="400px">
+  </div>  
+  <div id="amazfit" class="product">
+    <h1><span style="color: #7538d6;">Amaz</span>fit</h1>
+    <div class="container-fluid">
+      <p>Have fun and stay fit with the Amazfit Bip Lite Smart Watch that comes with various health and fitness
+        monitoring features. This device comes with the ability to track activity. Now, even while you are on the go,
+        you can check the number of steps you walked the whole day and also how many calories you have burnt. It comes
+        with a PPG heart-rate sensor. It is water resistant. Receive notifications for incoming calls, emails, messages
+        and other smartphone applications right on your wrist.</p>
+    </div>
+    <img src="{% static 'Amazfit.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'amazfit1.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'amazfit2.jpg' %}" width="400px" height="400px">
+  </div>
+  <div id="apple" class="product">
+    <h1><span style="color: #7538d6;">App</span>le</h1>
+    <div class="container-fluid">
+      <p>Have fun and stay fit with the Amazfit Bip Lite Smart Watch that comes with various health and fitness
+        monitoring features. This device comes with the ability to track activity. Now, even while you are on the go,
+        you can check the number of steps you walked the whole day and also how many calories you have burnt. It comes
+        with a PPG heart-rate sensor. It is water resistant. Receive notifications for incoming calls, emails, messages
+        and other smartphone applications right on your wrist.</p>
+    </div>
+    <img src="{% static 'apple.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'apple1.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'apple2.jpg' %}" width="400px" height="400px">
+  </div>
+  <div id="fitbit" class="product">
+    <h1><span style="color: #7538d6;">Fit</span>bit</h1>
+    <div class="container-fluid">
+      <p>Meet Fitbit Versa - an all-day companion that helps you live your best life. This lightweight, swimproof
+        smartwatch empowers you to reach health and fitness goals with 24/7 heart rate, actionable insights,
+        personalized guidance, on-screen workouts and more. Run your day with notifications, quick replies (android
+        only), apps, phone-free music -- all with 4+ day battery life (varies with use and other factors). Plus, wear it
+        your way with fresh accessories and clock faces. Radio transceiver: Bluetooth 4.0</p>
+    </div>
+    <img src="{% static 'fitbit.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'fitbit1.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'fitbit2.jpg' %}" width="400px" height="400px">
+  </div>
+  <div id="fossil" class="product">
+    <h1><span style="color: #7538d6;">Foss</span>il</h1>
+    <div class="container-fluid">
+      <p>Classic design. Modern tech. This 44mm Carlyle HR touchscreen smartwatch features a smoke stainless steel
+        bracelet, speaker functionality, increased storage capacity and three smart battery modes to extend battery life
+        for multiple days. Smartwatches powered with Wear OS by Google are compatible with iPhone® and Android™ phones.
+        Wear OS by Google and other related marks are trademarks of Google LLC. Touchscreen smartwatches powered with
+        Wear OS by Google require a phone running Android OS 4.4+ (excluding Go edition) or iOS 9.3+.</p>
+    </div>
+    <img src="{% static 'fossil.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'fossil1.jpg' %}" width="400px" height="400px">
+    <img src="{% static 'fossil2.jpg' %}" width="400px" height="400px">
+  </div>
+  <div id="features" class="float-container">
+    <div class="float-child">
+      <img src="{% static 'features.jpg' %}" class="vector" width="448px" height="635px">
+    </div>
+    <div class="float-child" id="featurelist">
+      <h1>Splendid Features</h1>
+      <div class="row">
+        <i class="fa fa-microphone" style="font-size:36px;color:#7538d6"></i>
+        <b>Voice Recognition</b>
+      </div>
+      <p style="font-size:20px ;">Lorem ipsum dolor sit amet, con sectetur adipiscing elit. Mauris</p>
+      <div class="row">
+        <i class="fa fa-mobile-phone" style="font-size:36px;color:#7538d6"></i>
+        <b>Connect with your phone</b>
+      </div>
+      <p style="font-size:20px ;">Lorem ipsum dolor sit amet, con sectetur adipiscing elit. Mauris</p>
+      <div class="row">
+        <i class="fa fa-wifi" style="font-size:36px;color:#7538d6"></i>
+        <b>Any task at hand</b>
+      </div>
+      <p style="font-size:20px ;">Lorem ipsum dolor sit amet, con sectetur adipiscing elit. Mauris</p>
+    </div>
+  </div>
+</section>
+<footer class="bg-dark">
+  <ul style="list-style-type:none ;padding: 1%;">
+    <b>Best Experience</b>
+    <li>FAQ</li>
+    <li>Shipment</li>
+    <li>Returns</li>
+    <li>Gift cards</li>
+  </ul>
+  <p>&copy; Created by Saran</p>
+</footer>

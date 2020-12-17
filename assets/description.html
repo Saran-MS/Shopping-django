@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="./stylesheet.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var val = 0;
+        function count() {
+            val++;
+            document.getElementById("cart").innerHTML = val + " Added successfully ";
+            alert("Item Added to cart Successfully");
+        }
+    </script>
+</head>
+<nav class="navbar navbar-expand-xl bg-dark navbar-dark">
+    <img src="logo.png">
+
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" href="./index.html#welcome-section">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./index.html#about">Gallery</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Products
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="./index.html#amazfit" style="font-size: larger;">Amazfit</a>
+                <a class="dropdown-item" href="./index.html#apple" style="font-size: larger;">Apple</a>
+                <a class="dropdown-item" href="./index.html#fitbit" style="font-size: larger;">Fitbit</a>
+                <a class="dropdown-item" href="./index.html#fossil" style="font-size: larger;">Fossil</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./index.html#features">Features</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./shop.html">Shop</a>
+        </li>
+    </ul>
+    <div class="nav-item dropdown">
+        <i class="fa fa-shopping-cart nav-link" id="navbardrop" data-toggle="dropdown"
+            style="font-size:36px;color:blueviolet;margin-left: 20%;"></i>
+        <div class="dropdown-menu">
+            <a id="cart" style="padding: 2%;font-size:large;">No Items in the cart</a>
+        </div>
+    </div>
+</nav>
+<section>
+    <div class="container" id="description">
+        <div id="features" class="float-container">
+            <div class="float-child" id="des1">
+                <img src="./shop/watch1.jpg" class="vector" width="500px" height="500px">
+                <div class="row" id="shoplist">
+                    <div class="col-sm">
+                        <img src="./shop/watch1.jpg" width="150px" height="150px">
+                    </div>
+                    <div class="col-sm">
+                        <img src="./shop/watch2.jpg" width="150px" height="150px">
+                    </div>
+                    <div class="col-sm">
+                        <img src="./shop/watch3.jpg" width="150px" height="150px">
+                    </div>
+                </div>
+            </div>
+            <div class="float-child" id="featurelist">
+                <h1>Charcoal Black</h1>
+                <hr>
+                <h3>$20</h3>
+                <hr>
+                <h3>Product description</h3>
+                <p style="font-family: 'Nunito';font-size: 20px;">Aenean egestas ante non ullamcorper rutrum. Donec
+                    fermentum mi nec massa tempor vehicula. Nulla nec porta lorem, laoreet congue lectus. Nullam commodo
+                    nisl in elit posuere, eget pulvinar nisl fringilla.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fermentum velit id eros finibus
+                    luctus.</p>
+                <hr>
+                <button class="btn btn-secondary" style="font-family: 'Nunito', sans-serif;font-size: 20px;"
+                    onclick="count()"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+            </div>
+        </div>
+</section>
+<div class="container" id="video">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TCMnrssX1NE?autoplay=1" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+</div>

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{% static 'styles/stylesheet.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>SM watches</title>
+    <style>
+        img{
+            margin-top:20px;
+        }
+        .navbar{
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<nav class="navbar navbar-expand-xl bg-dark navbar-dark">
+    <img src="{% static 'logo.png' %}">
+    <ul class="nav mr-auto">
+    </ul>
+    <ul class="nav">
+        {% if user.is_authenticated %}n Deliv
+        <li class="nav-item">
+            <a class="nav-link">Hello, <span style="color:lawngreen;">{{user.first_name}}</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./shops">Shop</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./cart">Cart</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="accounts/logout">Logout</a>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="accounts/register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="accounts/login">Login</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+<section>
+    <div class="container">
+        <div class="row" id="shoplist" style="padding-top: 7%;">
+            {% for shop in shop %}
+            <div class="col-sm">
+                <img src="{{shop.img.url}}" width="250px" height="240px">
+                <h4 style="margin-top: 5px;margin-bottom:2px" class="brand">{{shop.brand}}</h4>
+                <h5 style="margin-top: 5px;margin-bottom:2px;color: darkgoldenrod">${{shop.price}}</h5>
+                <a href="{% url 'buy' id=shop.id %}" style="color: white;text-decoration: none;"><button class="btn btn-dark">Add to Cart</button></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
